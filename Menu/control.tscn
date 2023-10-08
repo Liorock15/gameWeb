@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgrejtkj54f8o"]
+
+[ext_resource type="Script" path="res://Menu/control.gd" id="1_lwj82"]
+[ext_resource type="VideoStream" path="res://Menu/Planeta-Tierra-After-Effects.ogv" id="2_ccoty"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lwj82")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+stream = ExtResource("2_ccoty")
+volume_db = -80.0
+autoplay = true
+expand = true
+buffering_msec = 495
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

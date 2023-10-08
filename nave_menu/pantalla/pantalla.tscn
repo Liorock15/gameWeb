@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://boexhw8i0dydv"]
+
+[ext_resource type="Texture2D" uid="uid://dhaetqcqy65km" path="res://animacion xd/pexels-photo-176851.jpeg" id="1_5kojy"]
+[ext_resource type="Texture2D" uid="uid://c8arnlq67qi7" path="res://player/textures/grids/Dark/texture_05.png" id="1_5vier"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvbah"]
+albedo_texture = ExtResource("1_5kojy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tr0mm"]
+albedo_texture = ExtResource("1_5vier")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1gcy8"]
+material = SubResource("StandardMaterial3D_tr0mm")
+
+[node name="pantalla" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qvbah")
+mesh = SubResource("PlaneMesh_1gcy8")

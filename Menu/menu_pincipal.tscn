@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://cn6r6odhtrv03"]
+
+[ext_resource type="Script" path="res://Menu/menu_pincipal.gd" id="1_1xyi2"]
+[ext_resource type="PackedScene" uid="uid://dgrejtkj54f8o" path="res://Menu/control.tscn" id="2_5xec8"]
+[ext_resource type="Texture2D" uid="uid://bwiqso6g2q2k3" path="res://Menu/cooltext443971607057350 (1).png" id="3_og5j1"]
+[ext_resource type="FontFile" uid="uid://bm0xkdp0bpdal" path="res://Menu/Fonts/Kenney Mini.ttf" id="4_28q6p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofprt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4pqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74biy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1cqg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxgiv"]
+
+[sub_resource type="GDScript" id="GDScript_fm56t"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_salir_pressed():
+	get_tree().quit()
+"
+
+[node name="Menu pincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1xyi2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="MarginContainer" instance=ExtResource("2_5xec8")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 80
+uppercase = true
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.5
+offset_top = -50.0
+offset_right = 255.5
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0.537255, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.803922, 0, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ofprt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b4pqd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_74biy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w1cqg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxgiv")
+icon = ExtResource("3_og5j1")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="jugar" type="Button" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color(0.905882, 0.898039, 1, 1)
+z_as_relative = false
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_pressed_color = Color(0, 0.537255, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.803922, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("4_28q6p")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ofprt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b4pqd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_74biy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w1cqg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxgiv")
+text = "Start Game"
+flat = true
+expand_icon = true
+script = SubResource("GDScript_fm56t")
+
+[node name="salir" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0.537255, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.803922, 0, 1)
+theme_override_fonts/font = ExtResource("4_28q6p")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ofprt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b4pqd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_74biy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w1cqg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxgiv")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/salir" to="." method="_on_salir_pressed"]

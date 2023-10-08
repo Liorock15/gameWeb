@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbdkt4uvflsf0"]
+
+[ext_resource type="Script" path="res://Menu/menu_pincipal.gd" id="1_i0ris"]
+[ext_resource type="PackedScene" uid="uid://dgrejtkj54f8o" path="res://Menu/control.tscn" id="2_4i1nc"]
+[ext_resource type="FontFile" uid="uid://bm0xkdp0bpdal" path="res://Menu/Fonts/Kenney Mini.ttf" id="3_axqu7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofprt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b4pqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74biy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1cqg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxgiv"]
+
+[node name="Menu pincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i0ris")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="MarginContainer" instance=ExtResource("2_4i1nc")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 80
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="salir" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0.537255, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.803922, 0, 1)
+theme_override_fonts/font = ExtResource("3_axqu7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ofprt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b4pqd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_74biy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w1cqg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxgiv")
+text = "Quit"
+
+[node name="jugar" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0, 0.537255, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.803922, 0, 1)
+theme_override_fonts/font = ExtResource("3_axqu7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ofprt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b4pqd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_74biy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w1cqg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xxgiv")
+text = "Moon"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
